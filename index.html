@@ -18,9 +18,11 @@
   <meta property="og:locale" content="fr_FR">
   <link rel="canonical" href="https://www.laboheme-capdagde.fr/">
 
-  <!-- Icônes -->
+  <!-- Icônes & PWA -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="La Bohème">
 
   <!-- Polices : Ms Madi (script), Playfair Display (serif logo), Nunito Sans (texte) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +36,7 @@
   <!-- ══════════════════ HERO ══════════════════ -->
   <header class="hero" id="haut">
     <!-- Décor pampa (détouré, purement décoratif) -->
-    <img class="hero__pampa" src="assets/pampa.webp" alt="" aria-hidden="true">
+    <img class="hero__pampa" src="assets/pampa.webp" alt="" aria-hidden="true" decoding="async">
 
     <div class="hero__inner">
       <p class="hero__script reveal">Bienvenue à</p>
@@ -403,7 +405,7 @@
 
   <!-- ══════════════════ FOOTER ══════════════════ -->
   <footer class="footer">
-    <img class="footer__macrame" src="assets/corde.webp" alt="" aria-hidden="true">
+    <img class="footer__macrame" src="assets/corde.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
 
     <img class="footer__logo reveal" src="assets/logo-cream.webp" alt="La Bohème — Plage privée, transat, tapas, chill. Ouvert de 10h à 1h." width="220" height="220" loading="lazy">
 

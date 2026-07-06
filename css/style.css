@@ -10,7 +10,7 @@
   --sable:      #F1E3C8;
   --kraft:      #E8D5AF;
   --brun:       #53412C;
-  --brun-doux:  #7C6549;
+  --brun-doux:  #6E5639; /* contraste renforcé pour lecture en plein soleil */
   --teal:       #16766D;
   --teal-fonce: #0E5750;
   --or:         #BE9660;
@@ -24,7 +24,16 @@
 /* ─── Reset & base ─────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%; /* iOS : pas de zoom texte auto en paysage */
+}
+
+/* Toucher mobile : pas de délai double-tap, pas de flash gris au tap */
+a, button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
 
 body {
   font-family: var(--font-sans);
@@ -37,7 +46,7 @@ body {
     radial-gradient(ellipse 90% 50% at 15% 0%,  rgba(255, 248, 230, .75), transparent 60%),
     radial-gradient(ellipse 80% 45% at 100% 35%, rgba(232, 206, 158, .55), transparent 65%),
     radial-gradient(ellipse 90% 50% at 0% 80%,   rgba(240, 220, 180, .5),  transparent 60%);
-  background-attachment: fixed;
+  /* pas de background-attachment:fixed — buggé et coûteux sur Safari iOS */
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -69,11 +78,13 @@ section[id] { scroll-margin-top: 72px; }
 /* ═══ HERO ═════════════════════════════════════════════════ */
 .hero {
   position: relative;
-  min-height: 88svh;
+  /* Assez immersif pour poser la marque, assez court pour que
+     la carte arrive vite — c'est un menu scanné sur transat */
+  min-height: 76svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: calc(env(safe-area-inset-top, 0px) + 3.5rem) 1.5rem 4.5rem;
+  padding: calc(env(safe-area-inset-top, 0px) + 3rem) 1.5rem 4rem;
   text-align: center;
   overflow: hidden;
 }
