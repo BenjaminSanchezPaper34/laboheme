@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- SEO -->
+  <title>La Bohème — Plage Privée au Cap d'Agde · La Carte</title>
+  <meta name="description" content="La Bohème, plage privée au Cap d'Agde. Transat, tapas, cocktails signature & chill face à la mer. Ouvert tous les jours de 10h à 1h. Découvrez notre carte.">
+  <meta name="theme-color" content="#F1E3C8">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="La Bohème — Plage Privée au Cap d'Agde">
+  <meta property="og:description" content="Transat · Tapas · Chill — La carte de la plage privée La Bohème. Ouvert tous les jours de 10h à 1h.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://laboheme-theta.vercel.app/">
+  <meta property="og:image" content="https://laboheme-theta.vercel.app/assets/logo-dark.webp">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="canonical" href="https://laboheme-theta.vercel.app/">
+
+  <!-- Icônes -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Polices : Ms Madi (script), Playfair Display (serif logo), Nunito Sans (texte) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Playfair+Display:wght@500;600&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <header class="hero" id="haut">
+    <!-- Décor pampa (détouré, purement décoratif) -->
+    <img class="hero__pampa" src="assets/pampa.webp" alt="" aria-hidden="true">
+
+    <div class="hero__inner">
+      <p class="hero__script reveal">Bienvenue à</p>
+      <h1 class="hero__title reveal">La Bohème</h1>
+      <p class="hero__sub reveal"><span>PLAGE PRIVÉE</span> · <span>CAP D'AGDE</span></p>
+      <p class="hero__tags reveal">Transat <span>✳</span> Tapas <span>✳</span> Chill</p>
+
+      <div class="hero__infos reveal">
+        <span class="pill">Ouvert tous les jours · 10h — 1h</span>
+      </div>
+
+      <div class="hero__actions reveal">
+        <a class="btn btn--plein" href="#transat">Voir la carte</a>
+        <a class="btn btn--ligne" href="tel:+33766794934">☎ 07 66 79 49 34</a>
+      </div>
+    </div>
+
+    <!-- Flèche scroll -->
+    <a class="hero__fleche" href="#transat" aria-label="Descendre vers la carte">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+  </header>
+
+  <!-- ══════════════════ NAV CATÉGORIES (sticky) ══════════════════ -->
+  <nav class="nav" aria-label="Catégories de la carte">
+    <div class="nav__scroll" id="navScroll">
+      <a href="#transat"   class="nav__chip">Sur transat</a>
+      <a href="#tapas"     class="nav__chip">Tapas</a>
+      <a href="#table"     class="nav__chip">La table</a>
+      <a href="#cocktails" class="nav__chip">Cocktails</a>
+      <a href="#bar"       class="nav__chip">Bar</a>
+      <a href="#softs"     class="nav__chip">Softs &amp; Café</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════ SUR TRANSAT ══════════════════ -->
+    <section class="section" id="transat">
+      <header class="section__head reveal">
+        <p class="section__script">les pieds dans le sable</p>
+        <h2 class="section__title">Sur Transat</h2>
+        <p class="section__note">Service uniquement sur transat · à partir de 15h30</p>
+      </header>
+
+      <ul class="carte">
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Galette de tortillas</span><span class="dots"></span><span class="item__prix">9€</span></div>
+          <p class="item__desc">Garnie salée</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Galette de tortillas</span><span class="dots"></span><span class="item__prix">9€</span></div>
+          <p class="item__desc">Garnie sucrée</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Gaufre</span><span class="dots"></span><span class="item__prix">5€</span></div>
+          <p class="item__desc">Au sucre · au Nutella ou au caramel <strong>6,50€</strong></p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Crêpe au choix</span><span class="dots"></span><span class="item__prix">5€</span></div>
+          <p class="item__desc">Sucre · Nutella, confiture ou caramel <strong>6€</strong></p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Planchette de fruits</span><span class="dots"></span><span class="item__prix">9€</span></div>
+          <p class="item__desc">De saison, selon arrivage</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Glaces au choix</span><span class="dots"></span><span class="item__prix">3,50€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Salade César</span><span class="dots"></span><span class="item__prix">19€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Assiette de frites</span><span class="dots"></span><span class="item__prix">5€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Planchette de charcuterie</span><span class="dots"></span><span class="item__prix">11€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Yakitori</span><span class="dots"></span><span class="item__prix">8€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Tapenade</span><span class="dots"></span><span class="item__prix">8€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Mini poivrons</span><span class="dots"></span><span class="item__prix">8€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Tomate mozzarella</span><span class="dots"></span><span class="item__prix">18€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Croque-monsieur à la truffe</span><span class="dots"></span><span class="item__prix">18€</span></div>
+        </li>
+      </ul>
+    </section>
+
+    <div class="separateur" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ══════════════════ TAPAS ══════════════════ -->
+    <section class="section" id="tapas">
+      <header class="section__head reveal">
+        <p class="section__script">à partager… ou pas !!</p>
+        <h2 class="section__title">Tapas</h2>
+      </header>
+
+      <div class="encart reveal">
+        <div class="item__ligne"><span class="item__nom">Planche de charcuterie</span><span class="dots"></span><span class="item__prix">19€</span></div>
+        <p class="item__desc">Mortadelle, Spianata, viande de Grison, rosette, terrine de campagne, oignon de Modène, accompagnés de focaccia.</p>
+      </div>
+
+      <p class="carte__intro reveal">Tapas au choix — <strong>7€ l'unité</strong> · <strong>20€ les 3</strong></p>
+
+      <ul class="carte carte--puces">
+        <li class="item reveal"><span class="puce"></span>Patatas bravas, sauce samouraï</li>
+        <li class="item reveal"><span class="puce"></span>Tapenade, avocat, feta &amp; citron, accompagnée de focaccia</li>
+        <li class="item reveal"><span class="puce"></span>Tapenade d'olives vertes, accompagnée de focaccia</li>
+        <li class="item reveal"><span class="puce"></span>Yakitoris — brochettes de poulet, sauce soja sucrée</li>
+        <li class="item reveal"><span class="puce"></span>Mini poivrons farcis à la ricotta</li>
+        <li class="item reveal"><span class="puce"></span>Sticks de mozzarella</li>
+        <li class="item reveal"><span class="puce"></span>Crevettes frites, sauce aigre-douce</li>
+        <li class="item reveal"><span class="puce"></span>Joëls (mini poissons frits), tranche de citron frais</li>
+        <li class="item reveal"><span class="puce"></span>Pimientos de Padrón</li>
+        <li class="item reveal"><span class="puce"></span>Bouchées de camembert frites</li>
+      </ul>
+    </section>
+
+    <div class="separateur" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ══════════════════ LA TABLE ══════════════════ -->
+    <section class="section" id="table">
+      <header class="section__head reveal">
+        <p class="section__script">pour continuer…</p>
+        <h2 class="section__title">La Table</h2>
+      </header>
+
+      <h3 class="sous-titre reveal">Nos entrées</h3>
+      <ul class="carte">
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Farandole de tomates de saison &amp; burrata</span><span class="dots"></span><span class="item__prix">18€</span></div>
+          <p class="item__desc">Feuilles de basilic fraîches, sel de Guérande, vinaigre balsamique</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">L'indémodable salade César au tender façon KFC</span><span class="dots"></span><span class="item__prix">19€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Croque à la truffe</span><span class="dots"></span><span class="item__prix">18€</span></div>
+          <p class="item__desc">Accompagné de sa salade</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Tartare de saumon</span><span class="dots"></span><span class="item__prix">19€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Tartine Avocado</span><span class="dots"></span><span class="item__prix">15€</span></div>
+          <p class="item__desc">Écrasé d'avocat, guacamole, tomates cerises, vinaigre balsamique</p>
+        </li>
+      </ul>
+
+      <h3 class="sous-titre reveal">Nos plats</h3>
+      <ul class="carte">
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Pâtes du jour</span><span class="dots"></span><span class="item__prix">23€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Tataki de thon</span><span class="dots"></span><span class="item__prix">27€</span></div>
+          <p class="item__desc">Dôme de riz blanc, légumes grillés ou frites</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">2 brochettes de bœuf</span><span class="dots"></span><span class="item__prix">28€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">2 brochettes de poulet citron</span><span class="dots"></span><span class="item__prix">24€</span></div>
+          <p class="item__desc">Accompagnées de légumes grillés ou frites</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Tartare de bœuf coupé au couteau</span><span class="dots"></span><span class="item__prix">27€</span></div>
+          <p class="item__desc">Accompagné de frites</p>
+        </li>
+      </ul>
+
+      <h3 class="sous-titre reveal">Spécial summer body… ou pas !!!</h3>
+      <ul class="carte">
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Trio de fromages</span><span class="dots"></span><span class="item__prix">16€</span></div>
+          <p class="item__desc">Miel &amp; pignons de pin grillés — trois fromages sélectionnés selon les arrivages et l'inspiration du chef, servis avec des petits pains rustiques.</p>
+        </li>
+      </ul>
+
+      <div class="encart encart--enfant reveal">
+        <div class="item__ligne"><span class="item__nom">Menu enfant <small>(jusqu'à 10 ans)</small></span><span class="dots"></span><span class="item__prix">14€</span></div>
+        <p class="item__desc">Tenders de poulet corn flakes <em>ou</em> tenders de colin, accompagnés de frites<br>+ 1 bâtonnet de glace au choix + 1 sirop au choix</p>
+      </div>
+    </section>
+
+    <div class="separateur" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ══════════════════ COCKTAILS ══════════════════ -->
+    <section class="section" id="cocktails">
+      <header class="section__head reveal">
+        <p class="section__script">par notre barman Gaëtan</p>
+        <h2 class="section__title">Cocktails</h2>
+        <p class="section__note">Nos créations signature — <strong>16€</strong> · élaborées avec des infusions, sirops et mousses réalisés artisanalement</p>
+      </header>
+
+      <div class="cocktails">
+        <article class="cocktail reveal">
+          <h3 class="cocktail__nom">Bombe H</h3>
+          <p class="cocktail__compo">Rhum blanc, Chartreuse verte, jus de citron vert, sirop de sucre, surmonté d'une mousse légère de Ti-Punch au rhum vieux.</p>
+          <p class="cocktail__mot">« Puissant et complexe »</p>
+        </article>
+        <article class="cocktail reveal">
+          <h3 class="cocktail__nom">L'Hibiscus Épicé</h3>
+          <p class="cocktail__compo">Gin London Dry, infusion maison d'hibiscus rouge, sirop de rooibos vanillé, menthe fraîche et citron déshydraté.</p>
+          <p class="cocktail__mot">« Floral et désaltérant »</p>
+        </article>
+        <article class="cocktail reveal">
+          <h3 class="cocktail__nom">La Sérénade</h3>
+          <p class="cocktail__compo">Rhum ambré, liqueur de banane, purée de framboise, fruit de la passion, citron vert et vanille.</p>
+          <p class="cocktail__mot">« Un hommage aux saveurs exotiques »</p>
+        </article>
+        <article class="cocktail reveal">
+          <h3 class="cocktail__nom">Dadou Fizz</h3>
+          <p class="cocktail__compo">Gin, Midori, liqueur de yuzu, Italicus, sirop d'agrumes maison, eau pétillante.</p>
+          <p class="cocktail__mot">« Aérien et sophistiqué »</p>
+        </article>
+        <article class="cocktail reveal">
+          <h3 class="cocktail__nom">Strawberry Basil Pie</h3>
+          <p class="cocktail__compo">Vodka premium, liqueur de fraise des bois, purée de fraise, sirop de basilic maison, mousse citronnée au siphon.</p>
+          <p class="cocktail__mot">« Gourmand et herbacé »</p>
+        </article>
+        <article class="cocktail reveal">
+          <h3 class="cocktail__nom">Le Manquila</h3>
+          <p class="cocktail__compo">Tequila reposado, purée de mangue, réduction d'Apérol, jus de citron frais, sirop d'agave.</p>
+          <p class="cocktail__mot">« Une alliance audacieuse et solaire »</p>
+        </article>
+      </div>
+
+      <div class="encart reveal">
+        <div class="item__ligne"><span class="item__nom">Mojito</span><span class="dots"></span><span class="item__prix">13€</span></div>
+        <p class="item__desc">Version classique ou aux purées de fruits — les grands classiques de la mixologie, réalisés avec notre touche de savoir-faire maison.</p>
+      </div>
+    </section>
+
+    <div class="separateur" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ══════════════════ BAR ══════════════════ -->
+    <section class="section" id="bar">
+      <header class="section__head reveal">
+        <p class="section__script">bar · tapas · chill</p>
+        <h2 class="section__title">Le Bar</h2>
+      </header>
+
+      <h3 class="sous-titre reveal">Les apéritifs</h3>
+      <ul class="carte carte--serree">
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Ricard <small>2 cl</small></span><span class="dots"></span><span class="item__prix">4€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Gin tonic <small>4 cl</small></span><span class="dots"></span><span class="item__prix">10€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Vodka Red Bull <small>4 cl</small></span><span class="dots"></span><span class="item__prix">10€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Jagger bomb <small>4 cl</small></span><span class="dots"></span><span class="item__prix">10€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Malibu ananas <small>4 cl</small></span><span class="dots"></span><span class="item__prix">10€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Get 27 <small>6 cl</small></span><span class="dots"></span><span class="item__prix">8€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Martini <small>6 cl</small></span><span class="dots"></span><span class="item__prix">7€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Jack Daniel's <small>4 cl</small></span><span class="dots"></span><span class="item__prix">9€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Kir pêche, mûre, cassis ou framboise <small>12 cl</small></span><span class="dots"></span><span class="item__prix">6€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Kir royal <small>12 cl</small></span><span class="dots"></span><span class="item__prix">12€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Jack coca <small>4 cl</small></span><span class="dots"></span><span class="item__prix">12€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Captain coca <small>4 cl</small></span><span class="dots"></span><span class="item__prix">9€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Suze <small>6 cl</small></span><span class="dots"></span><span class="item__prix">6€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Coupe de Prosecco <small>10 cl</small></span><span class="dots"></span><span class="item__prix">8€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Coupe de champagne Jacquart <small>10 cl</small></span><span class="dots"></span><span class="item__prix">11€</span></div></li>
+      </ul>
+
+      <h3 class="sous-titre reveal">Les incontournables <span class="sous-titre__prix">13€</span></h3>
+      <ul class="tags reveal">
+        <li>Expresso Martini</li><li>Margarita</li><li>Porn Star Martini</li><li>Bloody Mary</li>
+        <li>Gin Brasil Smash</li><li>Amaretto Sour</li><li>Sex on the Beach</li><li>Old Fashioned</li>
+        <li>Saint Germain Spritz</li><li>Aperol Spritz</li><li>Framboisia</li><li>Desperhina</li>
+        <li>Caipirinha</li><li>Gin Sa Mère</li><li>Cuba Libre</li><li>Mai Tai</li>
+        <li>Blue Lagoon</li><li>Pina Colada</li><li>Negroni</li><li>Irish Coffee</li>
+      </ul>
+      <p class="carte__intro reveal">Tous nos mojitos <em>(classique, fruits rouges)</em> · tous nos mules <em>(Moscow, London, Jamaican, Mexican)</em></p>
+
+      <div class="colonnes">
+        <div class="reveal">
+          <h3 class="sous-titre">Rhums <span class="sous-titre__prix">4 cl · 12€</span></h3>
+          <ul class="liste-simple"><li>Diplomatico</li><li>Kraken</li><li>Don Papa</li></ul>
+        </div>
+        <div class="reveal">
+          <h3 class="sous-titre">Gins <span class="sous-titre__prix">4 cl · 10€</span></h3>
+          <ul class="liste-simple"><li>Bombay</li><li>Monkey</li><li>Hendrick's</li></ul>
+        </div>
+      </div>
+
+      <h3 class="sous-titre reveal">Les smoothies <span class="sous-titre__prix">375 ml · 7€ sans alcool · 8€ avec</span></h3>
+      <ul class="carte">
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Green Power</span></div>
+          <p class="item__desc">Ananas, épinards, concombre, choux</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Vitality</span></div>
+          <p class="item__desc">Fraises, banane</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Quezze Nature</span></div>
+          <p class="item__desc">Passion, ananas, carottes, mangue</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Berries Paradise</span></div>
+          <p class="item__desc">Fraise, myrtille, cerise, mangue</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Caribeane Passion</span></div>
+          <p class="item__desc">Papaye, ananas, mangue</p>
+        </li>
+      </ul>
+    </section>
+
+    <div class="separateur" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ══════════════════ SOFTS & CAFÉ ══════════════════ -->
+    <section class="section" id="softs">
+      <header class="section__head reveal">
+        <p class="section__script">fraîcheur &amp; douceur</p>
+        <h2 class="section__title">Softs &amp; Café</h2>
+      </header>
+
+      <h3 class="sous-titre reveal">Les softs</h3>
+      <ul class="carte carte--serree">
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Sirop à l'eau <small>25 cl</small></span><span class="dots"></span><span class="item__prix">4€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Diabolo <small>33 cl</small></span><span class="dots"></span><span class="item__prix">6€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">San Pellegrino <small>1 L</small></span><span class="dots"></span><span class="item__prix">6,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">San Pellegrino <small>33 cl</small></span><span class="dots"></span><span class="item__prix">4€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Evian <small>1 L</small></span><span class="dots"></span><span class="item__prix">6,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Evian <small>33 cl</small></span><span class="dots"></span><span class="item__prix">4€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Perrier <small>33 cl</small></span><span class="dots"></span><span class="item__prix">4,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Coca-Cola <small>33 cl</small></span><span class="dots"></span><span class="item__prix">4,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Coca-Cola zéro <small>33 cl</small></span><span class="dots"></span><span class="item__prix">4,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Cherry Coke <small>33 cl</small></span><span class="dots"></span><span class="item__prix">4,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Orangina <small>33 cl</small></span><span class="dots"></span><span class="item__prix">4,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Fuze Tea <small>33 cl</small></span><span class="dots"></span><span class="item__prix">4,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Red Bull <small>33 cl</small></span><span class="dots"></span><span class="item__prix">4,50€</span></div></li>
+      </ul>
+
+      <h3 class="sous-titre reveal">Les boissons chaudes</h3>
+      <ul class="carte carte--serree">
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Expresso</span><span class="dots"></span><span class="item__prix">2,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Café crème</span><span class="dots"></span><span class="item__prix">3,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Double expresso</span><span class="dots"></span><span class="item__prix">4,50€</span></div></li>
+        <li class="item reveal"><div class="item__ligne"><span class="item__nom">Café frappé</span><span class="dots"></span><span class="item__prix">6€</span></div></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer class="footer">
+    <img class="footer__macrame" src="assets/corde.webp" alt="" aria-hidden="true">
+
+    <img class="footer__logo reveal" src="assets/logo-cream.webp" alt="La Bohème — Plage privée, transat, tapas, chill. Ouvert de 10h à 1h." width="220" height="220" loading="lazy">
+
+    <div class="footer__contact reveal">
+      <a class="btn btn--creme" href="tel:+33766794934">☎ 07 66 79 49 34</a>
+      <a class="btn btn--creme" href="https://www.instagram.com/laboheme.capdagde/" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
+        @laboheme.capdagde
+      </a>
+    </div>
+
+    <p class="footer__horaires reveal">Ouvert tous les jours · 10h — 1h · Cap d'Agde</p>
+
+    <div class="footer__mentions reveal">
+      <p>Service compris · Prix en euros TTC · Paiement accepté : carte bancaire ou espèces</p>
+      <p>L'alcool est interdit à la vente aux moins de 18 ans.<br>L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
+    </div>
+
+    <p class="footer__copy">© 2026 La Bohème — Plage privée · Cap d'Agde</p>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

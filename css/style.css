@@ -1,0 +1,499 @@
+/* ═══════════════════════════════════════════════════════════
+   LA BOHÈME — Plage Privée · Cap d'Agde
+   Carte digitale mobile-first (accès QR code)
+   Palette : sable/kraft · brun · teal (reprise des cartes papier)
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* Couleurs de la marque */
+  --creme:      #F8EFDC;
+  --sable:      #F1E3C8;
+  --kraft:      #E8D5AF;
+  --brun:       #53412C;
+  --brun-doux:  #7C6549;
+  --teal:       #16766D;
+  --teal-fonce: #0E5750;
+  --or:         #BE9660;
+
+  /* Typographies */
+  --font-script: 'Ms Madi', cursive;
+  --font-serif:  'Playfair Display', serif;
+  --font-sans:   'Nunito Sans', system-ui, sans-serif;
+}
+
+/* ─── Reset & base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--brun);
+  background-color: var(--sable);
+  /* Grain subtil + halos chauds, dans l'esprit papier kraft des cartes */
+  background-image:
+    radial-gradient(ellipse 90% 50% at 15% 0%,  rgba(255, 248, 230, .75), transparent 60%),
+    radial-gradient(ellipse 80% 45% at 100% 35%, rgba(232, 206, 158, .55), transparent 65%),
+    radial-gradient(ellipse 90% 50% at 0% 80%,   rgba(240, 220, 180, .5),  transparent 60%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+/* Ancres : on laisse la place à la nav sticky */
+section[id] { scroll-margin-top: 72px; }
+
+/* ─── Boutons ──────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .95rem;
+  font-weight: 700;
+  padding: .8rem 1.5rem;
+  border-radius: 999px;
+  transition: transform .3s ease, box-shadow .3s ease, background-color .3s ease;
+}
+.btn:hover, .btn:focus-visible { transform: scale(1.03); box-shadow: 0 6px 18px rgba(83, 65, 44, .22); }
+
+.btn--plein { background: var(--teal); color: var(--creme); box-shadow: 0 4px 14px rgba(22, 118, 109, .35); }
+.btn--ligne { border: 2px solid var(--brun); color: var(--brun); }
+.btn--creme { border: 1.5px solid rgba(248, 239, 220, .5); color: var(--creme); }
+
+/* ═══ HERO ═════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 88svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(env(safe-area-inset-top, 0px) + 3.5rem) 1.5rem 4.5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Bouquet de pampa décoratif, légèrement hors cadre */
+.hero__pampa {
+  position: absolute;
+  top: -4%;
+  right: -22%;
+  width: min(64vw, 340px);
+  transform: rotate(14deg);
+  opacity: .9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__inner { position: relative; z-index: 1; }
+
+.hero__script {
+  font-family: var(--font-script);
+  font-size: 1.7rem;
+  color: var(--teal);
+  margin-bottom: -0.6rem;
+}
+
+.hero__title {
+  font-family: var(--font-script);
+  font-size: clamp(4rem, 17vw, 6.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--brun);
+}
+
+.hero__sub {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  letter-spacing: .35em;
+  text-indent: .35em; /* compense le letter-spacing pour un vrai centrage */
+  margin-top: .5rem;
+  color: var(--brun-doux);
+}
+.hero__sub span { white-space: nowrap; } /* "CAP D'AGDE" ne se coupe pas */
+
+.hero__tags {
+  font-weight: 800;
+  font-size: .95rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-top: 1.1rem;
+}
+.hero__tags span { color: var(--or); margin: 0 .35rem; }
+
+.hero__infos { margin-top: 1.6rem; }
+
+.pill {
+  display: inline-block;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--creme);
+  background: var(--brun);
+  padding: .55rem 1.3rem;
+  border-radius: 999px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .8rem;
+  margin-top: 1.6rem;
+}
+
+/* Flèche scroll animée */
+.hero__fleche {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--brun-doux);
+  animation: rebond 1.8s ease-in-out infinite;
+  z-index: 1;
+}
+@keyframes rebond {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, 9px); }
+}
+
+/* ═══ NAV STICKY ═══════════════════════════════════════════ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: .6rem 0 1.2rem;
+  /* Fondu dégradé plutôt qu'un fond plein (safe area friendly) */
+  background: linear-gradient(to bottom, var(--sable) 55%, rgba(241, 227, 200, 0));
+}
+
+.nav__scroll {
+  display: flex;
+  gap: .5rem;
+  overflow-x: auto;
+  padding: .25rem 1.25rem;
+  scrollbar-width: none;         /* Firefox */
+  -webkit-overflow-scrolling: touch;
+}
+.nav__scroll::-webkit-scrollbar { display: none; }
+
+.nav__chip {
+  flex: 0 0 auto;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--brun);
+  background: rgba(248, 239, 220, .75);
+  border: 1.5px solid rgba(83, 65, 44, .25);
+  padding: .5rem 1.05rem;
+  border-radius: 999px;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+.nav__chip.actif {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--creme);
+}
+
+/* ═══ SECTIONS ═════════════════════════════════════════════ */
+.section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.section__head { text-align: center; margin-bottom: 2rem; }
+
+.section__script {
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  color: var(--or);
+  margin-bottom: -0.4rem;
+}
+
+.section__title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.section__note {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--brun-doux);
+  margin-top: .6rem;
+}
+.section__note strong { color: var(--teal); }
+
+/* Séparateur entre sections */
+.separateur {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  color: var(--or);
+}
+.separateur::before, .separateur::after {
+  content: '';
+  flex: 1;
+  border-top: 1.5px solid rgba(190, 150, 96, .45);
+}
+
+/* ─── Items de carte ───────────────────────────────────────── */
+.carte { display: flex; flex-direction: column; gap: 1.15rem; }
+.carte--serree { gap: .75rem; }
+
+.item__ligne {
+  display: flex;
+  align-items: baseline;
+  gap: .55rem;
+}
+
+.item__nom {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--brun);
+}
+.item__nom small { font-weight: 600; color: var(--brun-doux); font-size: .85em; }
+
+/* Pointillés entre le nom et le prix, comme sur la carte papier */
+.dots {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 2px dotted rgba(124, 101, 73, .5);
+  transform: translateY(-4px);
+}
+
+.item__prix {
+  font-weight: 800;
+  font-size: 1.02rem;
+  color: var(--teal);
+  white-space: nowrap;
+}
+
+.item__desc {
+  font-size: .92rem;
+  color: var(--brun-doux);
+  margin-top: .2rem;
+  padding-right: 2rem;
+}
+.item__desc strong { color: var(--teal); }
+
+.carte__intro {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--brun-doux);
+  margin: 1.8rem 0 1.4rem;
+}
+.carte__intro strong { color: var(--teal); font-weight: 800; }
+
+/* Liste à puces (tapas) */
+.carte--puces .item {
+  display: flex;
+  align-items: baseline;
+  gap: .65rem;
+  font-weight: 600;
+  color: var(--brun);
+}
+.puce {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  transform: translateY(-2px);
+}
+
+/* Encarts (planche, menu enfant, mojito) */
+.encart {
+  background: rgba(248, 239, 220, .7);
+  border: 1.5px solid rgba(190, 150, 96, .35);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: .5rem;
+}
+.encart--enfant { margin-top: 2rem; }
+.encart .item__desc { padding-right: 0; }
+
+/* Sous-titres de section */
+.sous-titre {
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 2.2rem 0 1.1rem;
+}
+.sous-titre:first-of-type { margin-top: 0; }
+.sous-titre__prix {
+  display: inline-block;
+  font-size: .82rem;
+  letter-spacing: .02em;
+  text-transform: none;
+  font-weight: 700;
+  color: var(--brun-doux);
+  margin-left: .4rem;
+}
+
+/* Nuage de tags (cocktails incontournables) */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.tags li {
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--brun);
+  background: rgba(248, 239, 220, .8);
+  border: 1.5px solid rgba(83, 65, 44, .2);
+  padding: .42rem .85rem;
+  border-radius: 999px;
+}
+
+/* Deux colonnes (rhums / gins) */
+.colonnes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2.2rem;
+}
+.colonnes .sous-titre { margin: 0 0 .7rem; }
+.colonnes .sous-titre__prix { display: block; margin-left: 0; }
+
+.liste-simple li {
+  font-weight: 600;
+  padding: .3rem 0;
+  border-bottom: 1px dashed rgba(124, 101, 73, .3);
+}
+.liste-simple li:last-child { border-bottom: none; }
+
+/* ─── Cocktails signature ──────────────────────────────────── */
+.cocktails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.cocktail {
+  background: rgba(248, 239, 220, .7);
+  border: 1.5px solid rgba(190, 150, 96, .35);
+  border-radius: 14px;
+  padding: 1.2rem 1.3rem;
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.cocktail:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(83, 65, 44, .15); }
+
+.cocktail__nom {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--teal);
+  line-height: 1.15;
+  margin-bottom: .35rem;
+}
+
+.cocktail__compo { font-size: .92rem; color: var(--brun-doux); }
+
+.cocktail__mot {
+  font-size: .9rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--or);
+  margin-top: .55rem;
+}
+
+/* ═══ FOOTER ═══════════════════════════════════════════════ */
+.footer {
+  position: relative;
+  margin-top: 3rem;
+  padding: 4.5rem 1.5rem calc(env(safe-area-inset-bottom, 0px) + 2rem);
+  background: linear-gradient(180deg, var(--teal-fonce), #0A423C);
+  color: var(--creme);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Macramé suspendu en haut du footer */
+.footer__macrame {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  opacity: .14;
+  pointer-events: none;
+}
+
+.footer__logo { margin-top: 2.5rem; } /* espace sous le macramé */
+
+.footer__logo { width: 200px; height: auto; margin: 0 auto 1.6rem; position: relative; }
+
+.footer__contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .8rem;
+  margin-bottom: 1.4rem;
+}
+
+.footer__horaires { font-weight: 700; font-size: .98rem; letter-spacing: .04em; }
+
+.footer__mentions {
+  font-size: .82rem;
+  color: rgba(248, 239, 220, .75);
+  max-width: 420px;
+  margin: 1.4rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.footer__copy {
+  font-size: .75rem;
+  color: rgba(248, 239, 220, .5);
+  margin-top: 2rem;
+}
+
+/* ═══ ANIMATIONS DE REVEAL ═════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity .7s ease, transform .7s ease;
+  transition-delay: var(--delai, 0s);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Accessibilité : on coupe les animations si demandé */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero__fleche { animation: none; }
+  .btn, .cocktail { transition: none; }
+}
+
+/* ═══ TABLETTE / DESKTOP (site pensé mobile d'abord) ═══════ */
+@media (min-width: 768px) {
+  .section { max-width: 720px; }
+
+  .hero__pampa { right: -6%; width: 320px; }
+
+  .cocktails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nav__scroll { justify-content: center; }
+}
