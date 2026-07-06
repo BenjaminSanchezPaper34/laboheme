@@ -415,6 +415,41 @@ section[id] { scroll-margin-top: 72px; }
   margin-top: .55rem;
 }
 
+/* ─── CTA Avis Google ──────────────────────────────────────── */
+.section--avis { padding-bottom: 1.5rem; }
+
+.avis {
+  background: rgba(248, 239, 220, .75);
+  border: 1.5px solid rgba(190, 150, 96, .4);
+  border-radius: 18px;
+  padding: 2rem 1.5rem 2.2rem;
+  text-align: center;
+}
+
+.avis__etoiles {
+  font-size: 1.5rem;
+  letter-spacing: .35rem;
+  text-indent: .35rem;
+  color: var(--or);
+  margin-bottom: .3rem;
+}
+
+.avis__titre {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 2.6rem;
+  line-height: 1.15;
+  color: var(--brun);
+  margin-bottom: .5rem;
+}
+
+.avis__texte {
+  font-size: .98rem;
+  color: var(--brun-doux);
+  max-width: 380px;
+  margin: 0 auto 1.4rem;
+}
+
 /* ═══ FOOTER ═══════════════════════════════════════════════ */
 .footer {
   position: relative;
