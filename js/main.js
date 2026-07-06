@@ -32,7 +32,7 @@
     });
   }
 
-  function majReveals() {
+  function majReveals(immediat) {
     if (!enAttenteReveal.length) return;
     var seuil = window.innerHeight * 0.92; // révèle un peu avant le bas
     var restants = [];
@@ -40,6 +40,8 @@
       // Révélé dès qu'il passe le seuil bas — ou s'il est déjà
       // au-dessus du viewport (saut d'ancre depuis la nav)
       if (el.getBoundingClientRect().top < seuil) {
+        // Au chargement : ce qui est à l'écran s'affiche sans fondu
+        if (immediat) el.classList.add('instant');
         el.classList.add('visible');
       } else {
         restants.push(el);
@@ -94,7 +96,8 @@
   window.addEventListener('scroll', surScroll, { passive: true });
   window.addEventListener('resize', surScroll, { passive: true });
 
-  // État initial (au chargement, éventuellement déjà scrollé)
-  majReveals();
+  // État initial : ce qui est déjà à l'écran s'affiche immédiatement
+  // (le reveal animé est réservé au contenu découvert en scrollant)
+  majReveals(true);
   majScrollspy();
 })();

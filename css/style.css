@@ -514,18 +514,24 @@ section[id] { scroll-margin-top: 72px; }
 }
 
 /* ═══ ANIMATIONS DE REVEAL ═════════════════════════════════ */
-.reveal {
+/* Masquage scoped à html.js : sans JavaScript, tout reste visible */
+html.js .reveal {
   opacity: 0;
   transform: translateY(34px);
   transition: opacity .7s ease, transform .7s ease;
   transition-delay: var(--delai, 0s);
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+html.js .reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Contenu déjà à l'écran au chargement : affichage immédiat,
+   sans fondu d'entrée (évite l'effet « ça disparaît puis ça
+   revient » lié à la capture d'écran de Safari iOS au reload) */
+html.js .reveal.instant { transition: none; }
 
 /* Accessibilité : on coupe les animations si demandé */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
   .hero__fleche { animation: none; }
   .btn, .cocktail { transition: none; }
 }
