@@ -150,6 +150,15 @@ section[id] { scroll-margin-top: 72px; }
   border-radius: 999px;
 }
 
+/* Mention discrète du changement de propriétaires */
+.hero__nouveau {
+  font-size: .85rem;
+  color: var(--brun-doux);
+  opacity: .85;
+  margin-top: .9rem;
+}
+.hero__nouveau em { font-style: italic; }
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
