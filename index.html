@@ -94,13 +94,13 @@
       <p class="hero__nouveau reveal">Nouveaux propriétaires — <em>Le Nudisme Interdit</em> devient La Bohème</p>
 
       <div class="hero__actions reveal">
-        <a class="btn btn--plein" href="#transat">Voir la carte</a>
+        <a class="btn btn--plein" href="#location">Voir la carte</a>
         <a class="btn btn--ligne" href="tel:+33766794934">☎ 07 66 79 49 34</a>
       </div>
     </div>
 
     <!-- Flèche scroll -->
-    <a class="hero__fleche" href="#transat" aria-label="Descendre vers la carte">
+    <a class="hero__fleche" href="#location" aria-label="Descendre vers la carte">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
     </a>
   </header>
@@ -108,9 +108,11 @@
   <!-- ══════════════════ NAV CATÉGORIES (sticky) ══════════════════ -->
   <nav class="nav" aria-label="Catégories de la carte">
     <div class="nav__scroll" id="navScroll">
+      <a href="#location"  class="nav__chip">Transats</a>
       <a href="#transat"   class="nav__chip">Sur transat</a>
       <a href="#tapas"     class="nav__chip">Tapas</a>
       <a href="#table"     class="nav__chip">La table</a>
+      <a href="#desserts"  class="nav__chip">Desserts</a>
       <a href="#cocktails" class="nav__chip">Cocktails</a>
       <a href="#bar"       class="nav__chip">Bar</a>
       <a href="#softs"     class="nav__chip">Softs &amp; Café</a>
@@ -118,6 +120,37 @@
   </nav>
 
   <main>
+
+    <!-- ══════════════════ LOCATION DE TRANSATS ══════════════════ -->
+    <section class="section" id="location">
+      <header class="section__head reveal">
+        <p class="section__script">face à la mer</p>
+        <h2 class="section__title">Nos Transats</h2>
+        <p class="section__note">Location de 10h à 19h · tarif unique à la journée</p>
+      </header>
+
+      <div class="formules">
+        <div class="formule reveal">
+          <p class="formule__nom">1 matelas + 1 parasol</p>
+          <p class="formule__detail">Première ligne · face à la mer</p>
+          <p class="formule__prix">19€</p>
+        </div>
+        <div class="formule reveal">
+          <p class="formule__nom">1 matelas + 1 parasol</p>
+          <p class="formule__detail">Deuxième ligne</p>
+          <p class="formule__prix">15€</p>
+        </div>
+        <div class="formule reveal formule--duo">
+          <p class="formule__nom">2 matelas + 1 parasol</p>
+          <p class="formule__detail">1 bouteille d'eau offerte</p>
+          <p class="formule__prix">28€</p>
+        </div>
+      </div>
+
+      <p class="carte__intro reveal">Tapas, glaces et boissons servis sur votre transat à partir de 15h30 — restaurant de 12h à 15h et de 18h30 à 21h30.</p>
+    </section>
+
+    <div class="separateur" aria-hidden="true"><span>✦</span></div>
 
     <!-- ══════════════════ SUR TRANSAT ══════════════════ -->
     <section class="section" id="transat">
@@ -273,6 +306,54 @@
         <div class="item__ligne"><span class="item__nom">Menu enfant <small>(jusqu'à 10 ans)</small></span><span class="dots"></span><span class="item__prix">14€</span></div>
         <p class="item__desc">Tenders de poulet corn flakes <em>ou</em> tenders de colin, accompagnés de frites<br>+ 1 bâtonnet de glace au choix + 1 sirop au choix</p>
       </div>
+    </section>
+
+    <div class="separateur" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ══════════════════ DESSERTS & GLACES ══════════════════ -->
+    <section class="section" id="desserts">
+      <header class="section__head reveal">
+        <p class="section__script">la touche sucrée</p>
+        <h2 class="section__title">Desserts &amp; Glaces</h2>
+        <p class="section__note">Glaces d'exception <strong>Maison Antonin</strong>, accompagnées de chantilly à la vanille Bourbon</p>
+      </header>
+
+      <div class="encart reveal" style="text-align:center">
+        <p class="item__nom">1 boule <span class="item__prix">3€</span> · 2 boules <span class="item__prix">5€</span> · 3 boules <span class="item__prix">7€</span></p>
+      </div>
+
+      <h3 class="sous-titre reveal">Crèmes glacées</h3>
+      <ul class="tags reveal">
+        <li>Vanille Délice</li><li>Café Moka</li><li>Chocolat Craquant</li><li>Rhum Raisin</li>
+        <li>Yaourt</li><li>Caramel salé de Guérande</li><li>Spéculoos</li><li>Noix de coco</li><li>Menthe Chocolat</li>
+      </ul>
+
+      <h3 class="sous-titre reveal">Sorbets</h3>
+      <ul class="tags reveal">
+        <li>Citron de Sicile</li><li>Fraise d'exception</li><li>Pêche de vigne</li><li>Poire de France</li>
+        <li>Mandarine de Sicile</li><li>Mangue</li><li>Get 27</li>
+      </ul>
+
+      <h3 class="sous-titre reveal">Nos douceurs</h3>
+      <ul class="carte">
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Salade de fraises</span><span class="dots"></span><span class="item__prix">10€</span></div>
+          <p class="item__desc">Poivre, menthe fraîche &amp; sucre fin</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Notre baba au rhum bien arrosé</span><span class="dots"></span><span class="item__prix">12€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Pain perdu</span><span class="dots"></span><span class="item__prix">12€</span></div>
+          <p class="item__desc">Boule de glace vanille &amp; caramel beurre salé</p>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Café gourmand</span><span class="dots"></span><span class="item__prix">12€</span></div>
+        </li>
+        <li class="item reveal">
+          <div class="item__ligne"><span class="item__nom">Thé gourmand</span><span class="dots"></span><span class="item__prix">12€</span></div>
+        </li>
+      </ul>
     </section>
 
     <div class="separateur" aria-hidden="true"><span>✦</span></div>
@@ -464,7 +545,7 @@
       <a class="btn btn--creme" href="https://maps.google.com/?cid=9127205699592732695" target="_blank" rel="noopener">📍 Itinéraire</a>
     </div>
 
-    <p class="footer__horaires reveal">Ouvert tous les jours · 10h — 1h<br>Plage privée · 1 Rue des Corsaires · Le Cap d'Agde</p>
+    <p class="footer__horaires reveal">Ouvert tous les jours · 10h — 1h<br>Transats · 10h — 19h &nbsp;·&nbsp; Restaurant · 12h — 15h &amp; 18h30 — 21h30<br>Plage privée · 1 Rue des Corsaires · Le Cap d'Agde</p>
 
     <div class="footer__mentions reveal">
       <p>Service compris · Prix en euros TTC · Paiement accepté : carte bancaire ou espèces</p>
