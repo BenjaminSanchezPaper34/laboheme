@@ -81,6 +81,14 @@
     premierSpy = false;
   }
 
+  /* ─── Instagram flottant : visible une fois entré dans la carte ── */
+  var fabInsta = document.getElementById('fabInsta');
+
+  function majFab() {
+    if (!fabInsta) return;
+    fabInsta.classList.toggle('affiche', window.scrollY > window.innerHeight * 0.55);
+  }
+
   /* ─── Boucle scroll unique (throttle rAF) ────────────────── */
   var enAttente = false;
   function surScroll() {
@@ -89,6 +97,7 @@
     requestAnimationFrame(function () {
       majReveals();
       majScrollspy();
+      majFab();
       enAttente = false;
     });
   }
@@ -100,4 +109,5 @@
   // (le reveal animé est réservé au contenu découvert en scrollant)
   majReveals(true);
   majScrollspy();
+  majFab();
 })();

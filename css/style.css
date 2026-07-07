@@ -559,6 +559,36 @@ section[id] { scroll-margin-top: 72px; }
   margin-top: 2rem;
 }
 
+/* ─── Bouton hero rond (icône seule) ───────────────────────── */
+.btn--rond { padding: .8rem; border-radius: 50%; }
+
+/* ─── Instagram flottant ───────────────────────────────────── */
+.fab-insta {
+  position: fixed;
+  right: 1.1rem;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 1.2rem);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--creme);
+  box-shadow: 0 8px 22px rgba(14, 87, 80, .4);
+  opacity: 0;
+  transform: scale(.6);
+  pointer-events: none;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.fab-insta.affiche {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+.fab-insta:active { transform: scale(.92); }
+
 /* ═══ ANIMATIONS DE REVEAL ═════════════════════════════════ */
 /* Masquage scoped à html.js : sans JavaScript, tout reste visible */
 html.js .reveal {
