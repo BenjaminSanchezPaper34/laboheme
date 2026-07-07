@@ -8,19 +8,58 @@
        sans JS, la carte reste entièrement lisible -->
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- SEO -->
-  <title>La Bohème — Plage Privée au Cap d'Agde · La Carte</title>
-  <meta name="description" content="La Bohème, plage privée au Cap d'Agde. Transat, tapas, cocktails signature & chill face à la mer. Ouvert tous les jours de 10h à 1h. Découvrez notre carte.">
+  <!-- SEO — insister sur « plage privée » / « transats » pour bien se
+       distinguer des restaurants homonymes du Cap d'Agde -->
+  <title>La Bohème — Plage Privée au Cap d'Agde · Transats, Tapas &amp; Cocktails</title>
+  <meta name="description" content="La Bohème, plage privée au Cap d'Agde (anciennement Le Nudisme Interdit) : transats face à la mer, tapas à partager, cocktails signature servis sur la plage. 1 Rue des Corsaires, Le Cap d'Agde. Ouvert tous les jours de 10h à 1h.">
   <meta name="theme-color" content="#F1E3C8">
 
   <!-- Open Graph -->
   <meta property="og:title" content="La Bohème — Plage Privée au Cap d'Agde">
-  <meta property="og:description" content="Transat · Tapas · Chill — La carte de la plage privée La Bohème. Ouvert tous les jours de 10h à 1h.">
+  <meta property="og:description" content="Transats face à la mer, tapas & cocktails servis sur la plage. Ouvert tous les jours de 10h à 1h — 1 Rue des Corsaires, Le Cap d'Agde.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.laboheme-capdagde.fr/">
   <meta property="og:image" content="https://www.laboheme-capdagde.fr/assets/logo-dark.webp">
   <meta property="og:locale" content="fr_FR">
   <link rel="canonical" href="https://www.laboheme-capdagde.fr/">
+
+  <!-- Données structurées : identité de l'établissement, reliée à la
+       fiche Google (sameAs) pour lever toute ambiguïté d'homonymie -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "@id": "https://www.laboheme-capdagde.fr/#etablissement",
+    "name": "La Bohème - Cap d'Agde",
+    "alternateName": ["La Bohème Plage Privée", "Le Nudisme Interdit"],
+    "disambiguatingDescription": "Plage privée sur le front de mer du Cap d'Agde : location de transats, tapas et cocktails servis sur la plage. Établissement de plage, à ne pas confondre avec des établissements homonymes.",
+    "description": "La Bohème, plage privée au Cap d'Agde — transats face à la mer, tapas à partager, cocktails signature. Anciennement Le Nudisme Interdit. Ouvert tous les jours de 10h à 1h.",
+    "url": "https://www.laboheme-capdagde.fr/",
+    "telephone": "+33766794934",
+    "image": "https://www.laboheme-capdagde.fr/assets/logo-dark.webp",
+    "priceRange": "€€",
+    "servesCuisine": ["Tapas", "Cuisine méditerranéenne"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1 Rue des Corsaires",
+      "addressLocality": "Le Cap d'Agde",
+      "postalCode": "34300",
+      "addressRegion": "Occitanie",
+      "addressCountry": "FR"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "10:00",
+      "closes": "01:00"
+    },
+    "hasMenu": "https://www.laboheme-capdagde.fr/",
+    "sameAs": [
+      "https://www.instagram.com/laboheme.capdagde/",
+      "https://maps.google.com/?cid=9127205699592732695"
+    ]
+  }
+  </script>
 
   <!-- Icônes & PWA -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -422,9 +461,10 @@
         @laboheme.capdagde
       </a>
       <a class="btn btn--creme" href="https://search.google.com/local/writereview?placeid=ChIJk0Vyo1QjsRIRF0AlzDlZqn4" target="_blank" rel="noopener">★ Laisser un avis</a>
+      <a class="btn btn--creme" href="https://maps.google.com/?cid=9127205699592732695" target="_blank" rel="noopener">📍 Itinéraire</a>
     </div>
 
-    <p class="footer__horaires reveal">Ouvert tous les jours · 10h — 1h · Cap d'Agde</p>
+    <p class="footer__horaires reveal">Ouvert tous les jours · 10h — 1h<br>Plage privée · 1 Rue des Corsaires · Le Cap d'Agde</p>
 
     <div class="footer__mentions reveal">
       <p>Service compris · Prix en euros TTC · Paiement accepté : carte bancaire ou espèces</p>
