@@ -25,9 +25,9 @@ var AGENDA = [
   },
   {
     date: '2026-07-14',
-    titre: 'Fête nationale · Match France – Espagne',
-    horaire: 'diffusion dès 21h',
-    details: ''
+    titre: 'Fête nationale',
+    horaire: 'dès 21h',
+    details: 'Diffusion du match France – Espagne, puis feu d\'artifice'
   },
   {
     date: '2026-07-16',
