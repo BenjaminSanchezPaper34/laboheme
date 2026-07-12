@@ -111,6 +111,7 @@
   <!-- ══════════════════ NAV CATÉGORIES (sticky) ══════════════════ -->
   <nav class="nav" aria-label="Catégories de la carte">
     <div class="nav__scroll" id="navScroll">
+      <a href="#actu"      class="nav__chip">✦ L'actu</a>
       <a href="#location"  class="nav__chip">Transats</a>
       <a href="#transat"   class="nav__chip">Sur transat</a>
       <a href="#tapas"     class="nav__chip">Tapas</a>
@@ -123,6 +124,20 @@
   </nav>
 
   <main>
+
+    <!-- ══════════════════ L'ACTU DE LA PLAGE ══════════════════
+         Les événements se gèrent dans js/agenda.js — la liste
+         ci-dessous est remplie automatiquement. -->
+    <section class="section" id="actu">
+      <header class="section__head reveal">
+        <p class="section__script">ça bouge à La Bohème</p>
+        <h2 class="section__title">L'Actu</h2>
+        <p class="section__note">Les soirées de la semaine</p>
+      </header>
+      <ul class="agenda" id="actuListe"></ul>
+    </section>
+
+    <div class="separateur" id="sepActu" aria-hidden="true"><span>✦</span></div>
 
     <!-- ══════════════════ LOCATION DE TRANSATS ══════════════════ -->
     <section class="section" id="location">
@@ -563,6 +578,9 @@
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
   </a>
 
+  <!-- agenda.js AVANT main.js : les cartes doivent exister quand
+       main.js initialise les animations et le scrollspy -->
+  <script src="js/agenda.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
