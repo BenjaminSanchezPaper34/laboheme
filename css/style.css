@@ -459,6 +459,22 @@ section[id] { scroll-margin-top: 72px; }
   margin-top: .55rem;
 }
 
+/* Lien Insta de l'artiste — toujours sur sa propre ligne, mais
+   zone cliquable limitée à la largeur du texte */
+.evenement__insta {
+  display: flex;
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+  gap: .35rem;
+  margin-top: .7rem;
+  font-size: .85rem;
+  font-weight: 800;
+  color: var(--teal);
+}
+.evenement__insta svg { flex: 0 0 auto; }
+.evenement__insta:active { opacity: .6; }
+
 /* ─── Formules transats ────────────────────────────────────── */
 .formules {
   display: grid;
