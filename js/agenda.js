@@ -18,22 +18,22 @@
 
 var AGENDA = [
   {
-    date: '2026-07-13',
-    titre: 'DJ Zone V',
-    horaire: '21h — 1h',
-    details: 'Happy hour de 19h à 21h : cocktails à 10€ (hors signatures)'
-  },
-  {
-    date: '2026-07-14',
-    titre: 'Fête nationale',
-    horaire: 'dès 21h',
-    details: 'Diffusion du match France – Espagne, puis feu d\'artifice'
-  },
-  {
     date: '2026-07-16',
     titre: 'DJ Teus',
     horaire: '21h — 1h',
     details: 'Happy hour de 19h à 21h : cocktails à 10€ (hors signatures)'
+  },
+  {
+    date: '2026-07-17',
+    titre: 'Uma — DJ & Saxo live',
+    horaire: 'en soirée',
+    details: 'DJ set accompagné au saxophone — comme à l\'inauguration !'
+  },
+  {
+    date: '2026-07-20',
+    titre: 'Zone V — Après-midi festif',
+    horaire: '15h — 19h',
+    details: ''
   }
 ];
 
