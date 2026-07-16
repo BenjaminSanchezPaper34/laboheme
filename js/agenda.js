@@ -26,7 +26,7 @@ var AGENDA = [
   {
     date: '2026-07-17',
     titre: 'Uma — DJ & Saxo live',
-    horaire: 'en soirée',
+    horaire: '21h — 1h',
     details: 'DJ set accompagné au saxophone — comme à l\'inauguration !'
   },
   {
