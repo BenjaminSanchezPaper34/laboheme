@@ -355,6 +355,7 @@ section[id] { scroll-margin-top: 72px; }
   margin: 2.2rem 0 1.1rem;
 }
 .sous-titre:first-of-type { margin-top: 0; }
+.sous-titre--centre { text-align: center; }
 .sous-titre__prix {
   display: inline-block;
   font-size: .82rem;
@@ -412,6 +413,11 @@ section[id] { scroll-margin-top: 72px; }
   border-radius: 14px;
   padding: 1.1rem 1.3rem;
 }
+
+/* Rendez-vous hebdomadaire : liseré doré pour le distinguer
+   d'une soirée ponctuelle */
+.evenement--recurrent { border-left-color: var(--or); }
+.evenement--recurrent .evenement__date { color: var(--teal); }
 
 .evenement__date {
   font-size: .82rem;
