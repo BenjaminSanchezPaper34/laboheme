@@ -41,9 +41,9 @@ var RECURRENTS = [
   {
     jour: 'Vendredi',
     jourNum: 5,
-    titre: 'Uma — DJ & Saxo live',
+    titre: 'Uma',
     horaire: '15h — 19h',
-    details: 'Après-midi festif, DJ set accompagné au saxophone',
+    details: 'Après-midi festif, DJ set face à la mer',
     insta: 'uma.dj'
   }
 ];
