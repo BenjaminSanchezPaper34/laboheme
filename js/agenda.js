@@ -20,6 +20,8 @@
         details : (optionnel) happy hour, infos pratiques…
         insta   : (optionnel) handle Insta de l'artiste, SANS le @
                   ex : 'teusofficial' → lien cliquable @teusofficial
+        lien    : (optionnel) lien externe quelconque, sous la forme
+                  { url: 'https://…', texte: 'Texte affiché' }
 
    Le système fait le reste :
    • les soirées ponctuelles passées disparaissent toutes seules
@@ -61,6 +63,19 @@ var RECURRENTS = [
    }
 */
 var AGENDA = [
+  {
+    date: '2026-08-12',
+    titre: 'Éclipse solaire',
+    horaire: 'en fin de journée',
+    details: 'Lunettes d\'observation fournies par l\'établissement — l\'éclipse depuis votre transat, face à la mer.'
+  },
+  {
+    date: '2026-08-14',
+    titre: 'Le Gallega Brasero — Parillade de la mer',
+    horaire: '19h30',
+    details: 'Menu spécial parillade de la mer au brasero — uniquement sur réservation au <a href="tel:+33766794934">07 66 79 49 34</a>.',
+    lien: { url: 'https://www.facebook.com/share/182NqhFxvm/', texte: 'Le Gallega Brasero sur Facebook' }
+  }
 ];
 
 /* ─── Rendu (ne pas modifier) ────────────────────────────── */
@@ -95,6 +110,19 @@ var AGENDA = [
       'target="_blank" rel="noopener">' + svgInsta + '@' + handle + '</a>';
   }
 
+  // Icône lien externe (pour les liens Facebook, sites, etc.)
+  var svgLien = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" ' +
+    'stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+    'stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>' +
+    '<polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+
+  function lienExterne(lien) {
+    if (!lien || !lien.url) return '';
+    return '<a class="evenement__insta" href="' + lien.url + '" ' +
+      'target="_blank" rel="noopener">' + svgLien + (lien.texte || 'En savoir plus') + '</a>';
+  }
+
   function carte(opts) {
     var li = document.createElement('li');
     li.className = 'evenement reveal' + (opts.recurrent ? ' evenement--recurrent' : '');
@@ -103,7 +131,8 @@ var AGENDA = [
       '<h3 class="evenement__titre">' + opts.titre + '</h3>' +
       '<p class="evenement__horaire">' + opts.horaire + '</p>' +
       (opts.details ? '<p class="evenement__details">' + opts.details + '</p>' : '') +
-      lienInsta(opts.insta);
+      lienInsta(opts.insta) +
+      lienExterne(opts.lien);
     return li;
   }
 
@@ -118,7 +147,8 @@ var AGENDA = [
       titre: e.titre,
       horaire: e.horaire,
       details: e.details,
-      insta: e.insta
+      insta: e.insta,
+      lien: e.lien
     }));
   });
 
@@ -139,7 +169,8 @@ var AGENDA = [
       titre: e.titre,
       horaire: e.horaire,
       details: e.details,
-      insta: e.insta
+      insta: e.insta,
+      lien: e.lien
     }));
   });
 

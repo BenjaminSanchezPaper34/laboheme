@@ -464,6 +464,12 @@ section[id] { scroll-margin-top: 72px; }
   color: var(--brun-doux);
   margin-top: .55rem;
 }
+/* Liens dans les détails (ex. numéro de réservation) */
+.evenement__details a {
+  color: var(--teal);
+  font-weight: 700;
+  white-space: nowrap;
+}
 
 /* Lien Insta de l'artiste — toujours sur sa propre ligne, mais
    zone cliquable limitée à la largeur du texte */
