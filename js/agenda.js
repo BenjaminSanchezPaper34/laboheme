@@ -69,7 +69,7 @@ var AGENDA = [
   {
     titre: 'Le Gallega Brasero — Parillade de la mer',
     horaire: 'en soirée · 19h30',
-    details: 'Menu spécial parillade de la mer au brasero — uniquement sur réservation au <a href="tel:+33766794934">07 66 79 49 34</a>.',
+    details: 'Menu spécial parillade de la mer au brasero — uniquement sur réservation par <a href="sms:+33766794934?body=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20pour%20la%20soir%C3%A9e%20parillade%20Le%20Gallega%20Brasero%20(nombre%20de%20personnes)%20%3A%20">SMS au 07 66 79 49 34</a>.',
     lien: { url: 'https://www.facebook.com/share/182NqhFxvm/', texte: 'Le Gallega Brasero sur Facebook' }
   }
 ];

@@ -1,24 +1,18 @@
 /* ═══════════════════════════════════════════════════════════
    LA BOHÈME — Vos Avis
    ───────────────────────────────────────────────────────────
-   ⚡ FICHIER À ÉDITER pour mettre en avant les avis Google
-   4 et 5 étoiles — rien d'autre à toucher.
+   Les avis Google (note globale + avis 4-5 étoiles) sont
+   récupérés AUTOMATIQUEMENT via /api/avis (API officielle
+   Google Places, voir api/avis.js). Rien à maintenir ici.
 
-   AVIS_RESUME : la note globale de la fiche Google.
-     note  : ex '4,9'  — laisser '' pour masquer la ligne
-     total : ex 27     (nombre d'avis)
+   AVIS ci-dessous = mode manuel optionnel : si on y met des
+   avis, ils remplacent la récupération automatique (utile
+   pour choisir soi-même les avis affichés).
+     { etoiles: 5, texte: '…', auteur: 'Prénom N.', date: 'août 2026' }
 
-   AVIS : un avis = un bloc { etoiles, texte, auteur, date }
-     etoiles : 4 ou 5
-     texte   : le texte de l'avis (copié depuis Google)
-     auteur  : 'Prénom N.' (comme affiché sur Google)
-     date    : 'juillet 2026' (le mois affiché sur Google)
-
-   S'il n'y a aucun avis dans la liste, seul le bloc
-   « Votre avis compte » s'affiche (comme avant).
+   S'il n'y a ni avis manuels ni API disponible, seul le bloc
+   « Votre avis compte » s'affiche.
    ═══════════════════════════════════════════════════════════ */
-
-var AVIS_RESUME = { note: '', total: '' };
 
 var AVIS = [
 ];
@@ -30,31 +24,54 @@ var AVIS = [
   var carrousel = document.getElementById('avisCarrousel');
   if (!carrousel) return;
 
-  // Ligne de résumé « ★ 4,9/5 · 27 avis Google »
-  var resume = document.getElementById('avisResume');
-  if (resume && AVIS_RESUME.note) {
-    resume.innerHTML = '<strong>★ ' + AVIS_RESUME.note + '/5</strong>' +
-      (AVIS_RESUME.total ? ' · ' + AVIS_RESUME.total + ' avis Google' : '');
+  function afficherResume(note, total) {
+    var resume = document.getElementById('avisResume');
+    if (!resume || !note) return;
+    var noteFr = String(note).replace('.', ',');
+    resume.innerHTML = '<strong>★ ' + noteFr + '/5</strong>' +
+      (total ? ' · ' + total + ' avis Google' : '');
     resume.hidden = false;
   }
 
-  if (!AVIS.length) { carrousel.remove(); return; }
+  function afficherAvis(liste) {
+    liste.forEach(function (a) {
+      var card = document.createElement('article');
+      card.className = 'avis-card';
 
-  AVIS.forEach(function (a) {
-    var card = document.createElement('article');
-    card.className = 'avis-card reveal';
+      var etoiles = '';
+      for (var i = 0; i < 5; i++) {
+        etoiles += (i < a.etoiles) ? '★' : '☆';
+      }
 
-    var etoiles = '';
-    for (var i = 0; i < 5; i++) {
-      etoiles += (i < a.etoiles) ? '★' : '☆';
-    }
+      // Texte inséré en textContent : aucun HTML externe ne passe
+      var pEtoiles = '<p class="avis-card__etoiles" aria-label="' + a.etoiles + ' étoiles sur 5">' + etoiles + '</p>';
+      card.innerHTML = pEtoiles +
+        '<p class="avis-card__texte"></p>' +
+        '<p class="avis-card__auteur"></p>';
+      card.querySelector('.avis-card__texte').textContent = a.texte;
+      card.querySelector('.avis-card__auteur').textContent =
+        a.auteur + (a.date ? ' · ' + a.date : '');
 
-    card.innerHTML =
-      '<p class="avis-card__etoiles" aria-label="' + a.etoiles + ' étoiles sur 5">' + etoiles + '</p>' +
-      '<p class="avis-card__texte">' + a.texte + '</p>' +
-      '<p class="avis-card__auteur">' + a.auteur +
-      (a.date ? ' <span>· ' + a.date + '</span>' : '') + '</p>';
+      carrousel.appendChild(card);
+    });
+  }
 
-    carrousel.appendChild(card);
-  });
+  // Mode manuel prioritaire
+  if (AVIS.length) {
+    afficherAvis(AVIS);
+    return;
+  }
+
+  // Sinon : récupération automatique via l'API
+  fetch('api/avis')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (d && d.ok && d.avis && d.avis.length) {
+        afficherResume(d.note, d.total);
+        afficherAvis(d.avis);
+      } else {
+        carrousel.remove();
+      }
+    })
+    .catch(function () { carrousel.remove(); });
 })();
