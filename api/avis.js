@@ -16,7 +16,7 @@
 
 const PLACE_ID = 'ChIJk0Vyo1QjsRIRF0AlzDlZqn4'; // fiche La Bohème - Cap d'Agde
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const cle = process.env.GOOGLE_PLACES_KEY;
 
   // Cache CDN : 6 h de fraîcheur, 24 h de tolérance
@@ -60,4 +60,4 @@ export default async function handler(req, res) {
   } catch (e) {
     return res.status(200).json({ ok: false, raison: 'erreur reseau' });
   }
-}
+};
