@@ -135,6 +135,7 @@ section[id] { scroll-margin-top: 72px; }
   text-transform: uppercase;
   color: var(--teal);
   margin-top: 1.1rem;
+  text-wrap: balance; /* lignes équilibrées quand ça déborde */
 }
 .hero__tags span { color: var(--or); margin: 0 .35rem; }
 
