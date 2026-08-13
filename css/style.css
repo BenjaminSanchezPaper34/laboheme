@@ -561,6 +561,69 @@ section[id] { scroll-margin-top: 72px; }
   margin-top: .55rem;
 }
 
+/* ─── Bandeaux CTA avis (milieu de page) ───────────────────── */
+.avis-bandeau {
+  text-align: center;
+  margin-top: 2.4rem;
+}
+.avis-bandeau a {
+  display: inline-block;
+  font-size: .95rem;
+  color: var(--brun-doux);
+  background: rgba(248, 239, 220, .75);
+  border: 1.5px solid rgba(190, 150, 96, .4);
+  border-radius: 999px;
+  padding: .7rem 1.4rem;
+}
+.avis-bandeau span { color: var(--or); letter-spacing: .12rem; margin-right: .3rem; }
+.avis-bandeau strong { color: var(--teal); }
+
+/* ─── Carrousel d'avis ─────────────────────────────────────── */
+.avis-carrousel {
+  display: flex;
+  gap: .9rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: .2rem .2rem 1rem;
+  margin-bottom: 1.4rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.avis-carrousel::-webkit-scrollbar { display: none; }
+
+.avis-card {
+  flex: 0 0 82%;
+  scroll-snap-align: center;
+  background: rgba(248, 239, 220, .75);
+  border: 1.5px solid rgba(190, 150, 96, .4);
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+}
+
+.avis-card__etoiles {
+  color: var(--or);
+  font-size: 1.05rem;
+  letter-spacing: .2rem;
+}
+
+.avis-card__texte {
+  font-size: .95rem;
+  color: var(--brun);
+  margin-top: .5rem;
+}
+
+.avis-card__auteur {
+  font-size: .85rem;
+  font-weight: 800;
+  color: var(--brun-doux);
+  margin-top: .65rem;
+}
+.avis-card__auteur span { font-weight: 600; }
+
+@media (min-width: 768px) {
+  .avis-card { flex-basis: 46%; }
+}
+
 /* ─── CTA Avis Google ──────────────────────────────────────── */
 .section--avis { padding-bottom: 1.5rem; }
 

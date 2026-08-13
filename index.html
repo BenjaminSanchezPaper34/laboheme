@@ -121,6 +121,7 @@
       <a href="#bar"       class="nav__chip">Bar</a>
       <a href="#cave"      class="nav__chip">La cave</a>
       <a href="#softs"     class="nav__chip">Softs &amp; Café</a>
+      <a href="#avis"      class="nav__chip">★ Avis</a>
     </div>
   </nav>
 
@@ -329,6 +330,10 @@
         <div class="item__ligne"><span class="item__nom">Menu enfant <small>(jusqu'à 10 ans)</small></span><span class="dots"></span><span class="item__prix">14€</span></div>
         <p class="item__desc">Tenders de poulet corn flakes <em>ou</em> tenders de colin, accompagnés de frites<br>+ 1 bâtonnet de glace au choix + 1 sirop au choix</p>
       </div>
+
+      <p class="avis-bandeau reveal">
+        <a href="https://search.google.com/local/writereview?placeid=ChIJk0Vyo1QjsRIRF0AlzDlZqn4" target="_blank" rel="noopener"><span aria-hidden="true">★★★★★</span> Un moment de bonheur&nbsp;? <strong>Laissez-nous un avis</strong></a>
+      </p>
     </section>
 
     <div class="separateur" aria-hidden="true"><span>✦</span></div>
@@ -616,6 +621,10 @@
         <p class="item__nom">Nous possédons une cave d'alcools de prestige</p>
         <p class="item__desc">Je vous invite à venir la découvrir au bar — <strong>4 cl · 20€</strong></p>
       </div>
+
+      <p class="avis-bandeau reveal">
+        <a href="https://search.google.com/local/writereview?placeid=ChIJk0Vyo1QjsRIRF0AlzDlZqn4" target="_blank" rel="noopener"><span aria-hidden="true">★★★★★</span> Vous passez un bon moment&nbsp;? <strong>Laissez-nous un avis</strong></a>
+      </p>
     </section>
 
     <div class="separateur" aria-hidden="true"><span>✦</span></div>
@@ -653,8 +662,18 @@
 
     <div class="separateur" aria-hidden="true"><span>✦</span></div>
 
-    <!-- ══════════════════ AVIS GOOGLE ══════════════════ -->
+    <!-- ══════════════════ AVIS GOOGLE ══════════════════
+         Les avis mis en avant se gèrent dans js/avis.js -->
     <section class="section section--avis" id="avis">
+      <header class="section__head reveal">
+        <p class="section__script">ils ont aimé</p>
+        <h2 class="section__title">Vos Avis</h2>
+        <p class="section__note" id="avisResume" hidden></p>
+      </header>
+
+      <!-- Carrousel d'avis 4-5 étoiles (rempli par js/avis.js) -->
+      <div class="avis-carrousel" id="avisCarrousel" aria-label="Avis de nos clients"></div>
+
       <div class="avis reveal">
         <p class="avis__etoiles" aria-hidden="true">★★★★★</p>
         <p class="section__script">un moment de bonheur ?</p>
@@ -697,9 +716,10 @@
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
   </a>
 
-  <!-- agenda.js AVANT main.js : les cartes doivent exister quand
-       main.js initialise les animations et le scrollspy -->
+  <!-- agenda.js et avis.js AVANT main.js : les cartes doivent
+       exister quand main.js initialise animations et scrollspy -->
   <script src="js/agenda.js" defer></script>
+  <script src="js/avis.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
