@@ -81,6 +81,58 @@
     premierSpy = false;
   }
 
+  /* ─── Sections pliables (la carte en accordéon) ──────────── */
+  var pliables = document.querySelectorAll('.section--pliable');
+
+  // Les .reveal d'une section qu'on ouvre s'affichent immédiatement
+  function revelerDans(racine) {
+    enAttenteReveal = enAttenteReveal.filter(function (el) {
+      if (racine.contains(el)) {
+        el.classList.add('instant');
+        el.classList.add('visible');
+        return false;
+      }
+      return true;
+    });
+  }
+
+  pliables.forEach(function (section) {
+    var tete = section.querySelector('.section__head');
+    if (!tete) return;
+
+    tete.setAttribute('role', 'button');
+    tete.setAttribute('tabindex', '0');
+    tete.setAttribute('aria-expanded', 'false');
+
+    function basculer(forcer) {
+      var ouvert = (forcer === true) || (forcer !== false && !section.classList.contains('ouvert'));
+      section.classList.toggle('ouvert', ouvert);
+      tete.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+      if (ouvert) revelerDans(section);
+    }
+
+    tete.addEventListener('click', function () { basculer(); });
+    tete.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); basculer(); }
+    });
+
+    section._basculerPliable = basculer;
+  });
+
+  // Une ancre (chip de nav, bouton…) qui vise une section pliée l'ouvre
+  function ouvrirCible(hash) {
+    if (!hash || hash.length < 2) return;
+    var cible = document.querySelector(hash);
+    if (cible && cible._basculerPliable) cible._basculerPliable(true);
+  }
+
+  document.addEventListener('click', function (ev) {
+    var lien = ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+    if (lien) ouvrirCible(lien.getAttribute('href'));
+  });
+
+  if (location.hash) ouvrirCible(location.hash);
+
   /* ─── Instagram flottant : visible une fois entré dans la carte ── */
   var fabInsta = document.getElementById('fabInsta');
 

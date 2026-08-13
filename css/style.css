@@ -252,6 +252,37 @@ section[id] { scroll-margin-top: 72px; }
 }
 .section__note strong { color: var(--teal); }
 
+/* ─── Sections pliables (la carte en accordéon) ────────────
+   Le masquage ne s'applique que si le JS est là : sans JS,
+   toute la carte reste visible. */
+html.js .section--pliable .pliable__contenu { display: none; }
+html.js .section--pliable.ouvert .pliable__contenu { display: block; }
+
+html.js .section--pliable { padding-top: 1.7rem; padding-bottom: 1.7rem; }
+
+html.js .section--pliable .section__head {
+  cursor: pointer;
+  margin-bottom: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+html.js .section--pliable.ouvert .section__head { margin-bottom: 2rem; }
+
+/* Chevron d'ouverture */
+html.js .section--pliable .section__head::after {
+  content: '';
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: .8rem auto 0;
+  border-right: 2.5px solid var(--or);
+  border-bottom: 2.5px solid var(--or);
+  transform: rotate(45deg);
+  transition: transform .3s ease;
+}
+html.js .section--pliable.ouvert .section__head::after {
+  transform: rotate(-135deg);
+}
+
 /* Séparateur entre sections */
 .separateur {
   display: flex;
