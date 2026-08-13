@@ -592,6 +592,34 @@ html.js .section--pliable.ouvert .section__head::after {
   margin-top: .55rem;
 }
 
+/* ─── Galerie photos (bande défilante) ─────────────────────── */
+.galerie {
+  display: flex;
+  gap: .8rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  /* déborde du cadre de section pour un effet pleine largeur */
+  margin: 0 -1.5rem;
+  padding: .2rem 1.5rem 1rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.galerie::-webkit-scrollbar { display: none; }
+
+.galerie__photo {
+  flex: 0 0 auto;
+  height: 380px;
+  width: auto;
+  border-radius: 16px;
+  scroll-snap-align: center;
+  box-shadow: 0 10px 26px rgba(70, 50, 25, .18);
+  background: rgba(248, 239, 220, .6); /* placeholder pendant le chargement */
+}
+
+@media (max-width: 380px) {
+  .galerie__photo { height: 330px; }
+}
+
 /* ─── Bandeaux CTA avis (milieu de page) ───────────────────── */
 .avis-bandeau {
   text-align: center;
