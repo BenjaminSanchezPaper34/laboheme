@@ -15,6 +15,9 @@
 
    2) AGENDA — les soirées ponctuelles (une date précise).
         date    : au format 'AAAA-MM-JJ'
+                  — ou omise/vide : la carte affiche « Prochainement »,
+                  reste visible jusqu'à ce qu'on lui donne une date
+                  (ou qu'on la supprime), et se place après les datées
         titre   : le nom de la soirée
         horaire : texte libre ('21h — 1h', 'dès 21h'…)
         details : (optionnel) happy hour, infos pratiques…
@@ -64,15 +67,8 @@ var RECURRENTS = [
 */
 var AGENDA = [
   {
-    date: '2026-08-12',
-    titre: 'Éclipse solaire',
-    horaire: 'en fin de journée',
-    details: 'Lunettes d\'observation fournies par l\'établissement — l\'éclipse depuis votre transat, face à la mer.'
-  },
-  {
-    date: '2026-08-14',
     titre: 'Le Gallega Brasero — Parillade de la mer',
-    horaire: '19h30',
+    horaire: 'en soirée · 19h30',
     details: 'Menu spécial parillade de la mer au brasero — uniquement sur réservation au <a href="tel:+33766794934">07 66 79 49 34</a>.',
     lien: { url: 'https://www.facebook.com/share/182NqhFxvm/', texte: 'Le Gallega Brasero sur Facebook' }
   }
@@ -152,17 +148,22 @@ var AGENDA = [
     }));
   });
 
-  /* Soirées ponctuelles — on ne garde que celles à venir */
+  /* Soirées ponctuelles — les datées à venir, puis les « Prochainement » */
   var aVenir = AGENDA
-    .filter(function (e) { return e.date >= aujourdhui; })
-    .sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+    .filter(function (e) { return !e.date || e.date >= aujourdhui; })
+    .sort(function (a, b) {
+      if (!a.date) return 1;   // sans date : en fin de liste
+      if (!b.date) return -1;
+      return a.date < b.date ? -1 : 1;
+    });
 
   aVenir.forEach(function (e) {
-    var quand = new Date(e.date + 'T12:00:00');
     listeDates.appendChild(carte({
-      entete: quand.toLocaleDateString('fr-FR', {
-        weekday: 'long', day: 'numeric', month: 'long'
-      }),
+      entete: e.date
+        ? new Date(e.date + 'T12:00:00').toLocaleDateString('fr-FR', {
+            weekday: 'long', day: 'numeric', month: 'long'
+          })
+        : 'Prochainement',
       badge: (e.date === aujourdhui)
         ? ' <span class="evenement__badge">ce soir !</span>'
         : '',
