@@ -536,6 +536,16 @@ html.js .section--pliable.ouvert .section__head::after {
 /* La formule duo s'étale sur toute la largeur */
 .formule--duo { grid-column: 1 / -1; }
 
+/* Rangée (première / deuxième ligne) */
+.formule__rang {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: .25rem;
+}
+
 .formule__nom {
   font-weight: 800;
   font-size: 1rem;
