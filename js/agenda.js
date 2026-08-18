@@ -67,16 +67,10 @@ var RECURRENTS = [
 */
 var AGENDA = [
   {
-    date: '2026-08-15',
-    titre: 'Feu d\'artifice du 15 août',
-    horaire: 'à la tombée de la nuit',
-    details: 'Le feu d\'artifice du Cap devrait être visible depuis la plage — prolongez la soirée les pieds dans le sable.'
-  },
-  {
-    date: '2026-08-20',
+    date: '2026-08-25',
     titre: 'Le Gallega Brasero — Parillade de la mer',
     horaire: '19h30',
-    details: 'Menu spécial parillade de la mer au brasero — uniquement sur réservation par <a href="sms:+33766794934?body=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20pour%20la%20soir%C3%A9e%20parillade%20Le%20Gallega%20Brasero%20(nombre%20de%20personnes)%20%3A%20">SMS au 07 66 79 49 34</a>.',
+    details: 'Soirée reportée au mardi 25 août (météo oblige !) — parillade 100 % mer au brasero : moules, gambas, filet de rouget, couteaux en persillade… Date unique, uniquement sur réservation par <a href="sms:+33766794934?body=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20pour%20la%20soir%C3%A9e%20parillade%20Le%20Gallega%20Brasero%20du%2025%20ao%C3%BBt%20(nombre%20de%20personnes)%20%3A%20">SMS au 07 66 79 49 34</a>.',
     lien: { url: 'https://www.facebook.com/share/182NqhFxvm/', texte: 'Le Gallega Brasero sur Facebook' }
   }
 ];
