@@ -644,6 +644,24 @@ html.js .section--pliable.ouvert .section__head::after {
   .galerie__photo { height: 330px; }
 }
 
+/* Desktop : la bande photo s'échappe de la colonne de texte
+   et occupe toute la largeur de la fenêtre (body a overflow-x
+   caché, donc aucun défilement horizontal parasite) */
+@media (min-width: 768px) {
+  .galerie {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: .2rem 2.5rem 1.2rem;
+    scroll-padding: 0 2.5rem;
+    gap: 1rem;
+  }
+  .galerie__photo { height: 460px; }
+}
+
+@media (min-width: 1400px) {
+  .galerie__photo { height: 520px; }
+}
+
 /* ─── Bandeaux CTA avis (milieu de page) ───────────────────── */
 .avis-bandeau {
   text-align: center;
