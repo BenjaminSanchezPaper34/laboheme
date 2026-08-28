@@ -471,6 +471,19 @@ html.js .section--pliable.ouvert .section__head::after {
   transform: translateY(-1px);
 }
 
+/* Séance annulée : badge et mention */
+.evenement__badge--annule {
+  background: #A85236;
+}
+
+.evenement__annule {
+  display: block;
+  margin-top: .45rem;
+  font-weight: 800;
+  font-size: .88rem;
+  color: #A85236;
+}
+
 .evenement__titre {
   font-family: var(--font-serif);
   font-weight: 600;

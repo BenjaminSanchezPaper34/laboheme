@@ -11,6 +11,11 @@
         jourNum : 0=dimanche, 1=lundi, 2=mardi, 3=mercredi,
                   4=jeudi, 5=vendredi, 6=samedi
                   (sert au badge « c'est aujourd'hui ! »)
+        annulations : (optionnel) dates où la séance N'A PAS lieu,
+                  ex : ['2026-08-31'] — la carte reste affichée avec
+                  la mention « pas de séance le … » ; le jour même,
+                  badge « annulé aujourd'hui ». Les dates passées
+                  sont ignorées automatiquement.
         titre / horaire / details / insta : comme ci-dessous
 
    2) AGENDA — les soirées ponctuelles (une date précise).
@@ -41,7 +46,8 @@ var RECURRENTS = [
     titre: 'Zone V',
     horaire: '15h — 19h',
     details: 'Après-midi festif, les pieds dans le sable',
-    insta: 'z_o_n_e__v'
+    insta: 'z_o_n_e__v',
+    annulations: ['2026-08-31']
   },
   {
     jour: 'Vendredi',
@@ -49,7 +55,8 @@ var RECURRENTS = [
     titre: 'Uma',
     horaire: '15h — 19h',
     details: 'Après-midi festif, DJ set face à la mer',
-    insta: 'uma.dj'
+    insta: 'uma.dj',
+    annulations: ['2026-08-28']
   }
 ];
 
@@ -67,11 +74,11 @@ var RECURRENTS = [
 */
 var AGENDA = [
   {
-    date: '2026-08-25',
-    titre: 'Le Gallega Brasero — Parillade de la mer',
-    horaire: '19h30',
-    details: 'Soirée reportée au mardi 25 août (météo oblige !) — parillade 100 % mer au brasero : moules, gambas, filet de rouget, couteaux en persillade… Date unique, uniquement sur réservation par <a href="sms:+33766794934?body=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20pour%20la%20soir%C3%A9e%20parillade%20Le%20Gallega%20Brasero%20du%2025%20ao%C3%BBt%20(nombre%20de%20personnes)%20%3A%20">SMS au 07 66 79 49 34</a>.',
-    lien: { url: 'https://www.facebook.com/share/182NqhFxvm/', texte: 'Le Gallega Brasero sur Facebook' }
+    date: '2026-08-30',
+    titre: 'Zone V — Après-midi festif',
+    horaire: '15h — 19h',
+    details: 'Séance exceptionnelle du dimanche, les pieds dans le sable.',
+    insta: 'z_o_n_e__v'
   }
 ];
 
@@ -133,17 +140,47 @@ var AGENDA = [
     return li;
   }
 
+  // Date lisible en français : « lundi 31 août »
+  function dateFr(iso) {
+    return new Date(iso + 'T12:00:00').toLocaleDateString('fr-FR', {
+      weekday: 'long', day: 'numeric', month: 'long'
+    });
+  }
+
   /* Rendez-vous hebdomadaires — toujours affichés */
   RECURRENTS.forEach(function (e) {
+    // On ne garde que les annulations d'aujourd'hui et à venir
+    var annulations = (e.annulations || [])
+      .filter(function (date) { return date >= aujourdhui; })
+      .sort();
+
+    var annuleAujourdhui = annulations.indexOf(aujourdhui) !== -1;
+    var aVenir = annulations.filter(function (date) { return date !== aujourdhui; });
+
+    var badge = '';
+    if (annuleAujourdhui) {
+      badge = ' <span class="evenement__badge evenement__badge--annule">annulé aujourd\'hui</span>';
+    } else if (e.jourNum === jourSemaine) {
+      badge = ' <span class="evenement__badge">c\'est aujourd\'hui !</span>';
+    }
+
+    // Mention des séances annulées, sous les détails
+    var details = e.details || '';
+    if (annuleAujourdhui) {
+      details += '<span class="evenement__annule">Séance annulée aujourd\'hui (météo)</span>';
+    }
+    if (aVenir.length) {
+      details += '<span class="evenement__annule">Pas de séance le ' +
+        aVenir.map(dateFr).join(', le ') + '</span>';
+    }
+
     listeRec.appendChild(carte({
       recurrent: true,
       entete: 'Chaque ' + e.jour.toLowerCase(),
-      badge: (e.jourNum === jourSemaine)
-        ? ' <span class="evenement__badge">c\'est aujourd\'hui !</span>'
-        : '',
+      badge: badge,
       titre: e.titre,
       horaire: e.horaire,
-      details: e.details,
+      details: details,
       insta: e.insta,
       lien: e.lien
     }));
@@ -160,11 +197,7 @@ var AGENDA = [
 
   aVenir.forEach(function (e) {
     listeDates.appendChild(carte({
-      entete: e.date
-        ? new Date(e.date + 'T12:00:00').toLocaleDateString('fr-FR', {
-            weekday: 'long', day: 'numeric', month: 'long'
-          })
-        : 'Prochainement',
+      entete: e.date ? dateFr(e.date) : 'Prochainement',
       badge: (e.date === aujourdhui)
         ? ' <span class="evenement__badge">ce soir !</span>'
         : '',
