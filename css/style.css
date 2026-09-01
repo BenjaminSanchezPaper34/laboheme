@@ -139,7 +139,13 @@ section[id] { scroll-margin-top: 72px; }
 }
 .hero__tags span { color: var(--or); margin: 0 .35rem; }
 
-.hero__infos { margin-top: 1.6rem; }
+.hero__infos {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem;
+}
 
 .pill {
   display: inline-block;
@@ -150,6 +156,15 @@ section[id] { scroll-margin-top: 72px; }
   padding: .55rem 1.3rem;
   border-radius: 999px;
 }
+
+/* Pastille d'offre : teal pour trancher avec le badge horaires */
+.pill--offre {
+  background: var(--teal);
+  color: var(--creme);
+  box-shadow: 0 6px 18px rgba(22, 118, 109, .35);
+  transition: transform .3s ease;
+}
+.pill--offre:active { transform: scale(.97); }
 
 /* Mention discrète du changement de propriétaires */
 .hero__nouveau {
@@ -531,6 +546,39 @@ html.js .section--pliable.ouvert .section__head::after {
 }
 .evenement__insta svg { flex: 0 0 auto; }
 .evenement__insta:active { opacity: .6; }
+
+/* ─── Encart offre (fin de saison) ─────────────────────────── */
+.offre {
+  background: linear-gradient(160deg, var(--teal), var(--teal-fonce));
+  color: var(--creme);
+  border-radius: 18px;
+  padding: 1.4rem 1.3rem 1.5rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(14, 87, 80, .32);
+}
+
+.offre__label {
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #E9C892;
+}
+
+.offre__titre {
+  font-family: var(--font-script);
+  font-size: 2.4rem;
+  line-height: 1.1;
+  margin-top: .35rem;
+}
+
+.offre__detail {
+  font-size: .95rem;
+  font-weight: 700;
+  color: rgba(248, 239, 220, .9);
+  margin-top: .3rem;
+}
 
 /* ─── Formules transats ────────────────────────────────────── */
 .formules {
