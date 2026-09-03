@@ -166,6 +166,15 @@ section[id] { scroll-margin-top: 72px; }
 }
 .pill--offre:active { transform: scale(.97); }
 
+/* Pastille « temps fort » : brun nocturne et lettres dorées —
+   évoque la soirée et tranche nettement sur le fond sable */
+.pill--fort {
+  background: #3B2C1C;
+  color: #E9C892;
+  border: 1.5px solid var(--or);
+  box-shadow: 0 8px 20px rgba(59, 44, 28, .38);
+}
+
 /* Mention discrète du changement de propriétaires */
 .hero__nouveau {
   font-size: .85rem;
@@ -484,6 +493,33 @@ html.js .section--pliable.ouvert .section__head::after {
   border-radius: 999px;
   margin-left: .35rem;
   transform: translateY(-1px);
+}
+
+/* Événement à la une (temps fort de la saison) :
+   inversion complète pour qu'il tranche avec les autres cartes */
+.evenement--alaune {
+  background: linear-gradient(160deg, var(--teal), var(--teal-fonce));
+  border-color: rgba(190, 150, 96, .5);
+  border-left-color: var(--or);
+  color: var(--creme);
+  box-shadow: 0 14px 32px rgba(14, 87, 80, .34);
+  padding: 1.3rem 1.4rem 1.4rem;
+}
+.evenement--alaune .evenement__date { color: #E9C892; }
+.evenement--alaune .evenement__titre {
+  color: var(--creme);
+  font-size: 1.6rem;
+}
+.evenement--alaune .evenement__horaire {
+  background: var(--creme);
+  color: var(--teal-fonce);
+}
+.evenement--alaune .evenement__details { color: rgba(248, 239, 220, .92); }
+.evenement--alaune .evenement__details strong { color: #E9C892; }
+.evenement--alaune .evenement__insta { color: var(--creme); }
+.evenement--alaune .evenement__badge {
+  background: var(--or);
+  color: #3B2C1C;
 }
 
 /* Séance annulée : badge et mention */

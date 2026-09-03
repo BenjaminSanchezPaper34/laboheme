@@ -26,6 +26,8 @@
         titre   : le nom de la soirée
         horaire : texte libre ('21h — 1h', 'dès 21h'…)
         details : (optionnel) happy hour, infos pratiques…
+        alaune  : (optionnel) true = carte mise en avant (fond teal,
+                  badge « à ne pas manquer ») pour un temps fort
         insta   : (optionnel) handle Insta de l'artiste, SANS le @
                   ex : 'teusofficial' → lien cliquable @teusofficial
         lien    : (optionnel) lien externe quelconque, sous la forme
@@ -46,8 +48,7 @@ var RECURRENTS = [
     titre: 'Zone V',
     horaire: '15h — 19h',
     details: 'Après-midi festif, les pieds dans le sable',
-    insta: 'z_o_n_e__v',
-    annulations: ['2026-08-31']
+    insta: 'z_o_n_e__v'
   },
   {
     jour: 'Vendredi',
@@ -55,8 +56,7 @@ var RECURRENTS = [
     titre: 'Uma',
     horaire: '15h — 19h',
     details: 'Après-midi festif, DJ set face à la mer',
-    insta: 'uma.dj',
-    annulations: ['2026-08-28']
+    insta: 'uma.dj'
   }
 ];
 
@@ -74,11 +74,12 @@ var RECURRENTS = [
 */
 var AGENDA = [
   {
-    date: '2026-08-30',
-    titre: 'Zone V — Après-midi festif',
-    horaire: '15h — 19h',
-    details: 'Séance exceptionnelle du dimanche, les pieds dans le sable.',
-    insta: 'z_o_n_e__v'
+    date: '2026-09-12',
+    alaune: true,
+    titre: 'Closing Party',
+    horaire: 'à partir de 19h',
+    details: 'La soirée de clôture de la saison, avec <strong>DJ Uma</strong> aux platines et <strong>un verre offert</strong>. Restauration du soir : planche de charcuterie et planche de tapas uniquement.',
+    insta: 'uma.dj'
   }
 ];
 
@@ -129,7 +130,9 @@ var AGENDA = [
 
   function carte(opts) {
     var li = document.createElement('li');
-    li.className = 'evenement reveal' + (opts.recurrent ? ' evenement--recurrent' : '');
+    li.className = 'evenement reveal' +
+      (opts.recurrent ? ' evenement--recurrent' : '') +
+      (opts.alaune ? ' evenement--alaune' : '');
     li.innerHTML =
       '<p class="evenement__date">' + opts.entete + opts.badge + '</p>' +
       '<h3 class="evenement__titre">' + opts.titre + '</h3>' +
@@ -200,7 +203,8 @@ var AGENDA = [
       entete: e.date ? dateFr(e.date) : 'Prochainement',
       badge: (e.date === aujourdhui)
         ? ' <span class="evenement__badge">ce soir !</span>'
-        : '',
+        : (e.alaune ? ' <span class="evenement__badge">à ne pas manquer</span>' : ''),
+      alaune: e.alaune,
       titre: e.titre,
       horaire: e.horaire,
       details: e.details,
