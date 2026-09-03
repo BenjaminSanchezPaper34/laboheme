@@ -83,6 +83,20 @@ var AGENDA = [
   }
 ];
 
+/* ─── 3) Fin de saison ───────────────────────────────────────
+   À partir de la date ci-dessous, le site bascule TOUT SEUL en
+   mode hors-saison : message de clôture à la place de l'agenda,
+   pastilles du hero remplacées. La carte reste consultable.
+   Pour rouvrir la saison : remettre date à '' (ou la date de
+   réouverture) et remettre à jour RECURRENTS / AGENDA.
+   ─────────────────────────────────────────────────────────── */
+var FIN_DE_SAISON = {
+  date: '2026-09-13',
+  pastille: 'Saison terminée — merci à tous !',
+  titre: 'À l\'année prochaine',
+  message: 'La saison est terminée à La Bohème. Merci à toutes celles et ceux qui sont passés cet été — on remet le sable, les transats et les cocktails en place au printemps prochain. Suivez-nous sur Instagram pour ne rien manquer de la réouverture.'
+};
+
 /* ─── Rendu (ne pas modifier) ────────────────────────────── */
 (function () {
   'use strict';
@@ -107,6 +121,37 @@ var AGENDA = [
     'stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" ' +
     'width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/>' +
     '<circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>';
+
+  /* ─── Mode hors-saison ─── */
+  if (FIN_DE_SAISON.date && aujourdhui >= FIN_DE_SAISON.date) {
+    document.documentElement.classList.add('hors-saison');
+
+    // Le hero n'annonce plus qu'une chose : la saison est finie
+    var infos = document.querySelector('.hero__infos');
+    if (infos) {
+      infos.innerHTML = '<span class="pill pill--fort">✳ ' +
+        FIN_DE_SAISON.pastille + '</span>';
+    }
+
+    // L'Actu devient le mot de clôture
+    var note = section.querySelector('.section__note');
+    if (note) note.remove();
+    var titreRec = listeRec.previousElementSibling;
+    if (titreRec) titreRec.remove();
+    var titreDates = document.getElementById('actuTitreDates');
+    if (titreDates) titreDates.remove();
+    listeDates.remove();
+
+    var mot = document.createElement('li');
+    mot.className = 'evenement evenement--alaune reveal';
+    mot.innerHTML =
+      '<h3 class="evenement__titre">' + FIN_DE_SAISON.titre + '</h3>' +
+      '<p class="evenement__details">' + FIN_DE_SAISON.message + '</p>' +
+      '<a class="evenement__insta" href="https://www.instagram.com/laboheme.capdagde/" ' +
+      'target="_blank" rel="noopener">' + svgInsta + '@laboheme.capdagde</a>';
+    listeRec.appendChild(mot);
+    return;
+  }
 
   function lienInsta(handle) {
     if (!handle) return '';

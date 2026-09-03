@@ -616,6 +616,9 @@ html.js .section--pliable.ouvert .section__head::after {
   margin-top: .3rem;
 }
 
+/* Hors saison : l'offre promotionnelle n'a plus lieu d'être */
+html.hors-saison .offre { display: none; }
+
 /* ─── Formules transats ────────────────────────────────────── */
 .formules {
   display: grid;
