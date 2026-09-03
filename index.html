@@ -73,10 +73,8 @@
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="La Bohème">
 
-  <!-- Polices : Ms Madi (script), Playfair Display (serif logo), Nunito Sans (texte) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Playfair+Display:wght@500;600&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+  <!-- Polices auto-hébergées (Ms Madi, Playfair Display, Nunito Sans) — aucun CDN tiers -->
+  <link rel="stylesheet" href="css/fonts.css">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -785,7 +783,19 @@
       <p>L'alcool est interdit à la vente aux moins de 18 ans.<br>L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
     </div>
 
-    <p class="footer__copy">© 2026 La Bohème — Plage privée · Cap d'Agde</p>
+    <div class="footer__bas">
+      <p class="footer__copy">© 2026 La Bohème — Plage privée · Cap d'Agde</p>
+      <nav class="footer__legal" aria-label="Informations légales">
+        <a href="mentions-legales">Mentions légales</a>
+        <span aria-hidden="true">·</span>
+        <a href="confidentialite">Confidentialité</a>
+      </nav>
+      <!-- Signature Paper34 — kit officiel, version statique -->
+      <a class="signature" href="https://www.paper34.fr" target="_blank" rel="noopener" aria-label="Site réalisé par Paper34">
+        <span>Réalisé par</span>
+        <img src="assets/logo-paper34.svg" alt="Paper34" width="78" height="14">
+      </a>
+    </div>
   </footer>
 
   <!-- Bouton Instagram flottant : apparaît une fois entré dans la carte -->
