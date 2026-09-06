@@ -41,24 +41,28 @@
    ═══════════════════════════════════════════════════════════ */
 
 /* ─── 1) Chaque semaine, tout l'été ──────────────────────── */
-var RECURRENTS = [
-  {
-    jour: 'Lundi',
-    jourNum: 1,
-    titre: 'Zone V',
-    horaire: '15h — 19h',
-    details: 'Après-midi festif, les pieds dans le sable',
-    insta: 'z_o_n_e__v'
-  },
-  {
-    jour: 'Vendredi',
-    jourNum: 5,
-    titre: 'Uma',
-    horaire: '15h — 19h',
-    details: 'Après-midi festif, DJ set face à la mer',
-    insta: 'uma.dj'
-  }
-];
+/* Vide depuis le 6 septembre 2026 (fin de saison) : les après-midi
+   festifs du lundi (Zone V) et du vendredi (Uma) sont terminés.
+   À la réouverture, remettre les cartes sur ce modèle :
+
+   {
+     jour: 'Lundi',
+     jourNum: 1,
+     titre: 'Zone V',
+     horaire: '15h — 19h',
+     details: 'Après-midi festif, les pieds dans le sable',
+     insta: 'z_o_n_e__v'
+   },
+   {
+     jour: 'Vendredi',
+     jourNum: 5,
+     titre: 'Uma',
+     horaire: '15h — 19h',
+     details: 'Après-midi festif, DJ set face à la mer',
+     insta: 'uma.dj'
+   }
+*/
+var RECURRENTS = [];
 
 /* ─── 2) Les soirées ponctuelles ─────────────────────────── */
 /* Vide pour l'instant : seules les cartes hebdomadaires
@@ -195,7 +199,12 @@ var FIN_DE_SAISON = {
     });
   }
 
-  /* Rendez-vous hebdomadaires — toujours affichés */
+  /* Rendez-vous hebdomadaires — le bloc se masque s'il est vide */
+  if (!RECURRENTS.length) {
+    var titreRecVide = listeRec.previousElementSibling;
+    if (titreRecVide) titreRecVide.remove();
+    listeRec.remove();
+  }
   RECURRENTS.forEach(function (e) {
     // On ne garde que les annulations d'aujourd'hui et à venir
     var annulations = (e.annulations || [])
