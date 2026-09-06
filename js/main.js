@@ -163,3 +163,28 @@
   majScrollspy();
   majFab();
 })();
+
+
+/* ─── Événements de conversion (Vercel Web Analytics) ────────
+   Relie un post ou un scan QR à une action réelle : SMS, appel,
+   itinéraire, Instagram, avis. Sans cookie, rien n'est envoyé si
+   le script Vercel n'est pas chargé (window.va reste une file). */
+(function () {
+  'use strict';
+  function evenementAnalytics(a) {
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('sms:') === 0) return 'reservation';
+    if (href.indexOf('tel:') === 0) return 'tel';
+    if (href.indexOf('instagram.com') !== -1) return 'instagram';
+    if (href.indexOf('writereview') !== -1) return 'avis';
+    if (href.indexOf('maps') !== -1 || href.indexOf('goo.gl') !== -1) return 'itineraire';
+    if (href.indexOf('paper34.fr') !== -1) return 'paper34';
+    return null;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || typeof window.va !== 'function') return;
+    var nom = evenementAnalytics(a);
+    if (nom) window.va('event', { name: nom });
+  });
+})();
