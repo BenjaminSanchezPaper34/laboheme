@@ -78,7 +78,7 @@ var AGENDA = [
     alaune: true,
     titre: 'Closing Party',
     horaire: 'à partir de 19h',
-    details: 'La soirée de clôture de la saison, avec <strong>DJ Uma</strong> aux platines et <strong>un verre offert</strong>. Restauration du soir : planche de charcuterie et planche de tapas uniquement.',
+    details: 'La soirée de clôture de la saison, avec <strong>DJ Uma</strong> aux platines. <strong>Un cocktail offert</strong> à chacun, et la <strong>piscine accessible en soirée</strong> pour ceux qui le souhaitent. Côté restauration : planche de charcuterie et planche de tapas uniquement.',
     insta: 'uma.dj'
   }
 ];

@@ -399,6 +399,15 @@ html.js .section--pliable.ouvert .section__head::after {
   margin-bottom: .5rem;
 }
 .encart--enfant { margin-top: 2rem; }
+/* Ardoise du jour (fin de saison : carte restauration retirée) */
+.encart--ardoise { text-align: center; padding: 1.4rem 1.3rem; margin-bottom: 1.4rem; }
+.encart__titre {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--teal-fonce);
+  margin-bottom: .5rem;
+}
 .encart .item__desc { padding-right: 0; }
 
 /* Sous-titres de section */
